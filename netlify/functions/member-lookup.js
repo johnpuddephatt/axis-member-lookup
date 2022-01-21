@@ -13,28 +13,26 @@ exports.handler = async function () {
   //   }),
   // };
 
-  return chargebee.customer
+  let myerror;
+  let myresult;
+
+  chargebee.customer
     .retrieve("16BSFKSeT75cn1OK")
     .request(function (error, result) {
       if (error) {
-        return {
-          statusCode: 404,
-          body: JSON.stringify({
-            message: error.message,
-          }),
-        };
+        myerror = error;
       } else {
-        return {
-          statusCode: 404,
-          body: JSON.stringify({
-            message: {
-              customer: result.customer,
-              card: result.card,
-            },
-          }),
-        };
+        myresult = result;
       }
     });
+
+  return {
+    statusCode: 404,
+    body: JSON.stringify({
+      error: myerror,
+      result: myresult,
+    }),
+  };
 
   // return chargebee.customer
   //   .list({
