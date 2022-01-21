@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "chargebee": "^2.9.0"
+  }
+}
