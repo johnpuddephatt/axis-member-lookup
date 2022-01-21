@@ -8,7 +8,7 @@ exports.handler = async function () {
 
   return chargebee.customer
     .list({
-      email: "signmakers@email.com",
+      "email[is]": "signmakers@email.com",
     })
     .request(function (error, result) {
       return {
