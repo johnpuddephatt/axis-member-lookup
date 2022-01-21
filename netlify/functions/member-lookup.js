@@ -6,17 +6,18 @@ exports.handler = async function () {
     api_key: process.env.CHARGEBEE_API_KEY,
   });
 
+  return {
+    statusCode: 404,
+    body: JSON.stringify({
+      message: process.env.CHARGEBEE_API_KEY,
+    }),
+  };
+
   return chargebee.customer
     .list({
       "email[is]": "signmakers@email.com",
     })
     .request(function (error, result) {
-      return {
-        statusCode: 404,
-        body: JSON.stringify({
-          message: "hello world 2",
-        }),
-      };
       // if (error) {
       //   return {
       //     statusCode: 404,
