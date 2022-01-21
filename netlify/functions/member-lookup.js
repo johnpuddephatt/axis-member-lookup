@@ -17,9 +17,10 @@ exports.handler = async function () {
   let myerror;
   let myresult;
 
-  chargebee.customer
+  let result = chargebee.customer
     .retrieve("16BSFKSeT75cn1OK")
     .request(function (error, result) {
+      return "bar";
       if (error) {
         myerror = error;
       } else {
@@ -32,11 +33,7 @@ exports.handler = async function () {
   return {
     statusCode: 404,
     body: JSON.stringify({
-      foo: "bar",
-      error: myerror,
-      result: myresult,
-      customer: customer,
-      card: card,
+      foo: result,
     }),
   };
 
