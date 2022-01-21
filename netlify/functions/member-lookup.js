@@ -5,6 +5,14 @@ exports.handler = async function () {
     site: "axisweb-test",
     api_key: process.env.CHARGEBEE_API_KEY,
   });
+
+  return {
+    statusCode: 404,
+    body: JSON.stringify({
+      message: "hello world",
+    }),
+  };
+
   return chargebee.customer
     .list({
       email: "signmakers@email.com",
