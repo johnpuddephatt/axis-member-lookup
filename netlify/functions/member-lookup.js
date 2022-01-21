@@ -4,7 +4,7 @@ exports.handler = async function () {
     site: "axisweb-test",
     api_key: process.env.CHARGEBEE_API_KEY,
   });
-  chargebee.customer
+  return chargebee.customer
     .list({
       email: "signmakers@email.com",
     })
