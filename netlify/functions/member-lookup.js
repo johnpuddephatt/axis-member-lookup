@@ -14,14 +14,14 @@ exports.handler = async function () {
         return {
           statusCode: 404,
           body: JSON.stringify({
-            message: "Not found",
+            message: error.message,
           }),
         };
       } else {
         return {
           statusCode: 200,
           body: JSON.stringify({
-            message: result,
+            message: result.data,
           }),
         };
       }
