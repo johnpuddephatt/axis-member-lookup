@@ -1,6 +1,5 @@
-var chargebee = require("chargebee");
-
 exports.handler = async function () {
+  var chargebee = require("chargebee");
   chargebee.configure({
     site: "axisweb-test",
     api_key: process.env.CHARGEBEE_API_KEY,
