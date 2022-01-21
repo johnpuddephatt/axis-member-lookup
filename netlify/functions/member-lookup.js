@@ -1,4 +1,5 @@
 var chargebee = require("chargebee");
+const { customer } = require("chargebee/lib/resources/api_endpoints");
 
 exports.handler = async function () {
   chargebee.configure({
@@ -23,6 +24,8 @@ exports.handler = async function () {
         myerror = error;
       } else {
         myresult = result;
+        var customer = result.customer;
+        var card = result.card;
       }
     });
 
@@ -32,6 +35,8 @@ exports.handler = async function () {
       foo: "bar",
       error: myerror,
       result: myresult,
+      customer: customer,
+      card: card,
     }),
   };
 
